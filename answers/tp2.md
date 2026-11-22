@@ -20,3 +20,10 @@ Question8
 Les deux résultats présentent les mêmes cinq routes, avec les mêmes méthodes HTTP, URI et noms (tickets.index, tickets.create, tickets.store, tickets.show, tickets.destroy).
 La différence est que les cinq routes sont maintenant déclarées en une seule instruction Route::resource(...)->only(...) au lieu de cinq déclarations séparées.
 Route::resource fonctionne sans modification du contrôleur parce que Laravel associe automatiquement les routes aux méthodes correspondantes (index, create, store, show et destroy) du contrôleur.
+Conclusion du TP2
+
+1. Parce que Laravel interprétait `create` comme la valeur du paramètre dynamique `{ticket}` dans la route `/tickets/{ticket}`. La route `/tickets/create` devait être placée avant la route dynamique pour être reconnue correctement.
+
+2. La directive `@csrf` protège l'application contre les attaques Cross-Site Request Forgery (CSRF). Sans le jeton CSRF, Laravel renvoie normalement une erreur `419 Page Expired`.
+
+3. Parce qu'un utilisateur peut modifier les données du formulaire depuis son navigateur ou envoyer directement une requête personnalisée. La validation côté serveur garantit que seules les données autorisées sont enregistrées dans la base de données.
