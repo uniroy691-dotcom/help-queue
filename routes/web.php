@@ -6,7 +6,7 @@ use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('tickets.index');
 });
 
 Route::get('/hello', function () {
@@ -22,3 +22,8 @@ Route::resource('tickets', TicketController::class)
 
 Route::get('/topics/{topic}', [TopicController::class, 'show'])
     ->name('topics.show');
+    Route::get('/queue.json', function () {
+    return \App\Models\Ticket::with('topic')
+        ->waiting()
+        ->get();
+});

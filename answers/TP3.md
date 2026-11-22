@@ -19,3 +19,7 @@ La règle de validation exists:topics,id vérifie que le topic_id envoyé existe
 Question6
 Le sujet Laravel possède 3 tickets associés dans la base de données.
 La relation hasMany() dans le modèle Topic permet de récupérer tous les tickets appartenant à un sujet. La méthode count() permet de calculer leur nombre.
+Question7
+1.La réponse JSON contient 9 tickets en attente.
+2.Chaque ticket contient un objet topic avec les informations du sujet associé, notamment son id et son name.
+3.Une application externe peut consommer ce JSON en envoyant une requête HTTP GET vers /queue.json. Elle peut ensuite exploiter les données pour afficher les tickets et leurs sujets, par exemple dans une application mobile ou une interface JavaScript.
