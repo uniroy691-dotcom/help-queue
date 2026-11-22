@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Ticket extends Model
 {
@@ -17,4 +18,13 @@ class Ticket extends Model
         'topic',
         'description',
     ];
+public function scopeWaiting(Builder $query): void
+{
+    $query->where('status', 'waiting')->orderBy('id');
+}
+
+public function scopeHelping(Builder $query): void
+{
+    $query->where('status', 'helping');
+}    
 }
