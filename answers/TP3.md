@@ -10,3 +10,6 @@ Le nombre de personnes devant mon ticket est calculé avec la variable $ahead.
 La requête compte les tickets ayant le statut waiting et un identifiant inférieur à celui de mon ticket :
 Ticket::waiting()->where('id', '<', $ticket->id)->count();
 Le résultat représente le nombre de tickets en attente qui ont été créés avant le mien.
+Question4
+Les badges affichent les sujets des tickets. Ils permettent d'identifier rapidement la catégorie de chaque ticket, comme Git, Laravel, Blade, Database ou Setup.
+Grâce à la relation belongsTo() entre Ticket et Topic, chaque ticket récupère le nom de son sujet à partir de la clé étrangère topic_id.
