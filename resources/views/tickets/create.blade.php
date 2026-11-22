@@ -7,7 +7,7 @@
     <h1>Ask for help</h1>
 
     <form method="POST" action="{{ route('tickets.store') }}">
-    @csrf
+        @csrf
 
         <p>
             <label for="name">Your name</label><br>
@@ -18,16 +18,17 @@
         </p>
 
         <p>
-            <label for="topic">Topic</label><br>
-            <select id="topic" name="topic">
+            <label for="topic_id">Topic</label><br>
+            <select id="topic_id" name="topic_id">
                 <option value="">— choose —</option>
                 @foreach ($topics as $topic)
-                    <option value="{{ $topic }}" @selected(old('topic') === $topic)>
-                        {{ $topic }}
+                    <option value="{{ $topic->id }}"
+                        @selected(old('topic_id') == $topic->id)>
+                        {{ $topic->name }}
                     </option>
                 @endforeach
             </select>
-            @error('topic')
+            @error('topic_id')
                 <br><small class="error">{{ $message }}</small>
             @enderror
         </p>

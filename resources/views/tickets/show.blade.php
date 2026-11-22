@@ -7,7 +7,7 @@
     <h1>{{ $ticket->name }}</h1>
 
     <p>
-        <span class="topic">{{ $ticket->topic }}</span>
+        <span class="topic">{{ $ticket->topic->name }}</span>
         · {{ $ticket->status }}
     </p>
 

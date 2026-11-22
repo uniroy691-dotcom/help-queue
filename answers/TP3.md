@@ -13,3 +13,6 @@ Le résultat représente le nombre de tickets en attente qui ont été créés a
 Question4
 Les badges affichent les sujets des tickets. Ils permettent d'identifier rapidement la catégorie de chaque ticket, comme Git, Laravel, Blade, Database ou Setup.
 Grâce à la relation belongsTo() entre Ticket et Topic, chaque ticket récupère le nom de son sujet à partir de la clé étrangère topic_id.
+Question5
+Lorsque je remplace temporairement l'identifiant du sujet par 99, Laravel refuse la création du ticket, car cet identifiant n'existe pas dans la table topics.
+La règle de validation exists:topics,id vérifie que le topic_id envoyé existe réellement dans la base de données. Cela permet d'éviter les relations invalides entre les tickets et les sujets.
