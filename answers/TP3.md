@@ -23,3 +23,14 @@ Question7
 1.La réponse JSON contient 9 tickets en attente.
 2.Chaque ticket contient un objet topic avec les informations du sujet associé, notamment son id et son name.
 3.Une application externe peut consommer ce JSON en envoyant une requête HTTP GET vers /queue.json. Elle peut ensuite exploiter les données pour afficher les tickets et leurs sujets, par exemple dans une application mobile ou une interface JavaScript.
+Question8
+Le clonage de mon projet depuis GitHub dans un nouveau dossier a réussi. Après avoir installé les dépendances avec composer install et npm install, généré la clé Laravel et exécuté les migrations avec le Seeder, le projet a démarré correctement avec composer run dev.
+La page Help Queue s'affiche correctement et contient 9 tickets en attente avec leurs sujets.
+Le premier essai de composer install a échoué parce que Composer utilisait PHP 8.2.12, alors que le projet nécessite une version plus récente. Le problème a été résolu en utilisant PHP 8.5.13.
+### Questions de fin de TP
+1.`Ticket::waiting()` récupère les tickets dont le statut est `waiting` et les trie par identifiant (`id`) croissant.
+Un scope permet de centraliser cette requête dans le modèle `Ticket`, de réutiliser la même logique et de rendre le code plus lisible, au lieu de répéter `where('status', 'waiting')` partout.
+2.La colonne topic_id se trouve dans la table tickets. Elle est placée dans cette table parce qu'un ticket appartient à un seul sujet (Topic), tandis qu'un sujet peut être associé à plusieurs tickets.
+C'est une relation One-to-Many (un-à-plusieurs). La clé étrangère est donc placée du côté des tickets.
+3.Une application mobile, une application frontend JavaScript ou un autre système externe (API client) pourrait utiliser cet endpoint.
+Ces applications peuvent envoyer une requête HTTP GET vers /queue.json pour récupérer les tickets en attente au format JSON et afficher ou exploiter ces données.
