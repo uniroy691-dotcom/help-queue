@@ -1,0 +1,2 @@
+Question 1
+Non, les noms des tickets changent généralement à chaque exécution. La factory utilise fake()->firstName() pour générer des prénoms aléatoires avec Faker. Le seeder crée donc de nouvelles données à chaque exécution.
