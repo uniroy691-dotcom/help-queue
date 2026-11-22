@@ -16,5 +16,5 @@ Route::get('/hello/{name}', function (string $name) {
     return view('hello', ['name' => $name]);
 });
 Route::resource('tickets', TicketController::class)
-    ->only(['index', 'create', 'store', 'show', 'destroy']);
+    ->only(['index', 'create', 'store', 'show', 'update', 'destroy']);
 

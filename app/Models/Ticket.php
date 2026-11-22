@@ -10,6 +10,7 @@ class Ticket extends Model
     use HasFactory;
 
     public const TOPICS = ['Git', 'Laravel', 'Blade', 'Database', 'Setup'];
+    public const STATUSES = ['waiting', 'helping', 'done'];
 
     protected $fillable = [
         'name',

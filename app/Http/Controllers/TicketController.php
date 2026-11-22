@@ -44,4 +44,16 @@ public function destroy(Ticket $ticket)
     return redirect()->route('tickets.index')
         ->with('message', 'Ticket removed.');
 }
+public function update(Request $request, Ticket $ticket)
+{
+    $validated = $request->validate([
+        'status' => ['required', Rule::in(Ticket::STATUSES)],
+    ]);
+
+    $ticket->status = $validated['status'];
+    $ticket->save();
+
+    return redirect()->route('tickets.show', $ticket)
+        ->with('message', 'Status updated.');
+}
 }
