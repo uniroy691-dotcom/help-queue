@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
-use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
@@ -13,8 +11,9 @@ class TicketController extends Controller
 
         return view('tickets.index', ['tickets' => $tickets]);
     }
+
     public function show(Ticket $ticket)
-{
-    return view('tickets.show', ['ticket' => $ticket]);
-}
+    {
+        return view('tickets.show', ['ticket' => $ticket]);
+    }
 }

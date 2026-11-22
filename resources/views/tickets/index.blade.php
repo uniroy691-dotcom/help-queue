@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Queue')
@@ -9,11 +10,16 @@
     @forelse ($tickets as $ticket)
         <article class="ticket">
             <strong>
-    {{ $loop->iteration }}.
-    <a href="/tickets/{{ $ticket->id }}">{{ $ticket->name }}</a>
-</strong>
+                {{ $loop->iteration }}.
+                <a href="{{ route('tickets.show', $ticket) }}">
+                    {{ $ticket->name }}
+                </a>
+            </strong>
+
             <span class="topic">{{ $ticket->topic }}</span>
             <p>{{ $ticket->description }}</p>
+
+            <a href="{{ route('tickets.show', $ticket) }}">Details</a>
         </article>
     @empty
         <p>Nobody is waiting.</p>
