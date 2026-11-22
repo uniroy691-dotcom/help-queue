@@ -27,3 +27,5 @@ Route::get('/tickets/create', [TicketController::class, 'create'])
 
 Route::get('/tickets/{ticket}', [TicketController::class, 'show'])
     ->name('tickets.show');
+Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])
+    ->name('tickets.destroy');    

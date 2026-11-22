@@ -12,3 +12,7 @@ Le nom que j'avais saisi reste affiché dans le champ après le refus du formula
 Question6
 Question 6
 Le troisième essai est refusé parce que la validation côté serveur vérifie que le sujet choisi appartient obligatoirement à la liste `Ticket::TOPICS`. Même si un utilisateur modifie le formulaire dans son navigateur, il ne peut pas contourner les règles de validation du serveur.
+Question7
+Le formulaire de suppression contient deux champs cachés :
+token : contient le jeton CSRF qui protège contre les attaques Cross-Site Request Forgery.
+method : contient la valeur DELETE. Il permet à Laravel de traiter le formulaire HTML comme une requête HTTP DELETE afin de supprimer le ticket.
