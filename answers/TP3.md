@@ -5,3 +5,8 @@ Question2
 La méthode Ticket::waiting()->toSql() génère la requête SQL suivante :
 select * from "tickets" where "status" = ? order by "id" asc
 Cette requête récupère les tickets dont le statut est waiting, puis les trie par identifiant (id) dans l'ordre croissant. Le symbole ? représente une valeur liée (binding), qui correspond ici à waiting.
+Question3
+Le nombre de personnes devant mon ticket est calculé avec la variable $ahead.
+La requête compte les tickets ayant le statut waiting et un identifiant inférieur à celui de mon ticket :
+Ticket::waiting()->where('id', '<', $ticket->id)->count();
+Le résultat représente le nombre de tickets en attente qui ont été créés avant le mien.
