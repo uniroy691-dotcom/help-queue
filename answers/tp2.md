@@ -7,3 +7,8 @@ Question2
  Question4
  Sans la directive @csrf, Laravel doit normalement afficher une erreur 419 Page Expired, car le jeton CSRF est absent.
 Le jeton CSRF protège l'application contre les attaques Cross-Site Request Forgery (CSRF). Ces attaques consistent à faire exécuter une action non autorisée sur un site au nom d'un utilisateur.
+Question5
+Le nom que j'avais saisi reste affiché dans le champ après le refus du formulaire. C'est grâce à old('name') dans la vue Blade, qui récupère l'ancienne valeur saisie avant la validation.
+Question6
+Question 6
+Le troisième essai est refusé parce que la validation côté serveur vérifie que le sujet choisi appartient obligatoirement à la liste `Ticket::TOPICS`. Même si un utilisateur modifie le formulaire dans son navigateur, il ne peut pas contourner les règles de validation du serveur.
