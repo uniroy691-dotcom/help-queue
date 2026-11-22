@@ -16,3 +16,7 @@ Question7
 Le formulaire de suppression contient deux champs cachés :
 token : contient le jeton CSRF qui protège contre les attaques Cross-Site Request Forgery.
 method : contient la valeur DELETE. Il permet à Laravel de traiter le formulaire HTML comme une requête HTTP DELETE afin de supprimer le ticket.
+Question8
+Les deux résultats présentent les mêmes cinq routes, avec les mêmes méthodes HTTP, URI et noms (tickets.index, tickets.create, tickets.store, tickets.show, tickets.destroy).
+La différence est que les cinq routes sont maintenant déclarées en une seule instruction Route::resource(...)->only(...) au lieu de cinq déclarations séparées.
+Route::resource fonctionne sans modification du contrôleur parce que Laravel associe automatiquement les routes aux méthodes correspondantes (index, create, store, show et destroy) du contrôleur.
